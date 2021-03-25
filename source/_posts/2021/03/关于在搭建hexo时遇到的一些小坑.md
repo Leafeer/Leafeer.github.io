@@ -4,7 +4,7 @@ date: 2021-03-20 13:16:25
 tags: 
     - hexo
 categories:
-  - 程序
+  - 博客搭建
 ---
 
 # 如何在social下面添加能够跳转到QQ的聊天框

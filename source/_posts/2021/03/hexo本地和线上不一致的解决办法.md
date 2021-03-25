@@ -3,7 +3,7 @@ title: hexo本地和线上不一致的解决办法
 date: 2021-03-17 01:11:47
 tags: hexo
 categories:
-  - 程序
+  - 博客搭建
 ---
 
 # Github Page 配置
