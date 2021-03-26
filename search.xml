@@ -58,7 +58,7 @@
 <h1 id="如何引用多行代码块"><a href="#如何引用多行代码块" class="headerlink" title="如何引用多行代码块"></a>如何引用多行代码块</h1><p>需要使用  `  符号，键盘左上角，tab上面的符号。按三次，并且是独立的三个  `  符号为一行</p>
 ]]></content>
       <categories>
-        <category>程序</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
         <tag>hexo</tag>
@@ -75,7 +75,62 @@
 <h1 id="缓存清理"><a href="#缓存清理" class="headerlink" title="缓存清理"></a>缓存清理</h1><p>同时还可以删掉跟路径的.deploy_git文件夹，该文件夹为hexo g命令生成的文件夹,可以删掉后，使用hexo clean命令。再生成hexo文件，由此来删除缓存，也能减少该情况。</p>
 ]]></content>
       <categories>
-        <category>程序</category>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo利用Github搭建博客</title>
+    <url>/Hexo%E5%88%A9%E7%94%A8Github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="这篇开头"><a href="#这篇开头" class="headerlink" title="这篇开头"></a>这篇开头</h1><p>主要是针对想要自己搭建博客的小伙伴们来书写的一个简易的搭建博客的教程。该项目的原理是使用了Hexo博客框架+Next主题框架+Github Page来构建。<br>本篇幅主要针对window系统来考虑，敬请谅解。</p>
+<a id="more"></a>
+<h1 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h1><ol>
+<li>安装Node.js <a href="https://nodejs.org/en/" target="_blank" rel="noopener">点击此处</a>安装node.js，建议下载14.x的版本，相对来说比较稳定。安装完成之后，win+r输入cmd在命令行中输入node -v 来查看版本检验是否安装成功。如果显示未找到，请重启电脑后再次操作。</li>
+</ol>
+<img src="/Hexo%E5%88%A9%E7%94%A8Github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/Hexo%E5%88%A9%E7%94%A8Github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A201.png" class="" title="Hexo利用Github搭建博客">
+
+<ol start="2">
+<li><p>安装Git <a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">点击此处</a>安装Git,Git教程有机会再补。<br>该项目主要是利用Git Page的功能，不会涉及到太多的Git 的相关操作，可暂时不看Git相关教程也能完成搭建。</p>
+</li>
+<li><p>打开终端，通过npm安装<a href="https://hexo.io/zh-cn/docs/setup.html" target="_blank" rel="noopener">Hexo</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>都成功安装之后，所需要的环境都已经安装完毕，如有报错问题可以评论或者联系我。</p>
+<h1 id="Github配置"><a href="#Github配置" class="headerlink" title="Github配置"></a>Github配置</h1><ol>
+<li>注册、登录 <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a> ，要注意自己的 <kbd><font color='DarkTurquoise'>Username</font></kbd> 在之后的创建项目以及GitHub.io专属的域名中是一个比较重要的关键字。</li>
+<li>右上角选择 <kbd><font color='DarkTurquoise'>New repository</font></kbd></li>
+</ol>
+<img src="/Hexo%E5%88%A9%E7%94%A8Github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/Hexo%E5%88%A9%E7%94%A8Github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A202.png" class="" title="Hexo利用Github搭建博客">
+
+<p>其中仓库名称 <kbd><font color='DarkTurquoise'>Repository name</font></kbd> 一项填写格式为：youremail.github.io【youremail一定要与你的注册用户名一致,这个就是你博客的域名了】<br>3. 生成密匙 在终端输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot;</span><br></pre></td></tr></table></figure>
+<p>看不懂的话一直回车也可以，按照生成的目录去找到两个文件 <kbd><font color='DarkTurquoise'>id_rsa</font></kbd> 和 <kbd><font color='DarkTurquoise'>id_rsa.pub</font></kbd> ，用记事本打开 <kbd><font color='DarkTurquoise'>id_rsa.pub</font></kbd> 复制里面的所有内容。 进入 <a href="https://github.com/settings/ssh" target="_blank" rel="noopener">https://github.com/settings/ssh</a> 中，点击 <kbd><font color='DarkTurquoise'>New SSH key</font></kbd>创建新的SSH key。<br>title可以随意写，复制密匙到Key的输入框内添加则完成。</p>
+<h1 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h1><p>在想要建的目录下，在文件夹的目录路径上输入 <kbd><font color='DarkTurquoise'>CMD</font></kbd> 可以呼出对应路径的终端。</p>
+<img src="/Hexo%E5%88%A9%E7%94%A8Github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/Hexo%E5%88%A9%E7%94%A8Github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A203.png" class="" title="Hexo利用Github搭建博客">
+
+<p>输入以下内容初始化博客</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
+
+<p>初始化之后会在source目录下自带一篇标题为hello world 的文章，所以可以直接执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g &#x2F;&#x2F; 生成对应的博客文件</span><br><span class="line">hexo s &#x2F;&#x2F; 启动博客本地服务器预览</span><br><span class="line">WARN  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; ATTENTION! &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">WARN  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">WARN   NexT repository is moving here: https:&#x2F;&#x2F;github.com&#x2F;theme-next</span><br><span class="line">WARN  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">WARN   It&#39;s rebase to v6.0.0 and future maintenance will resume there</span><br><span class="line">WARN  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+<p>到这里就已经完成了搭建博客的一半了，接下来是配置博客的路径</p>
+<h1 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h1><p>打开根目录下的 <kbd><font color='DarkTurquoise'>_config.yml</font></kbd> 文件，该文件是配置文件，可以在里头修改参数信息。</p>
+<h2 id="配置相关信息"><a href="#配置相关信息" class="headerlink" title="配置相关信息"></a>配置相关信息</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: 抹茶薄荷糖的小屋                   &#x2F;&#x2F; 网页标题</span><br><span class="line">subtitle: &#39;希望世界和平，天天下雨&#39;         &#x2F;&#x2F; 个签</span><br><span class="line">description: &#39;蠢? 说我吗?&#39;                &#x2F;&#x2F; 描述</span><br><span class="line">keywords:                                &#x2F;&#x2F; 键入</span><br><span class="line">author: 抹茶薄荷糖                        &#x2F;&#x2F; 作者</span><br><span class="line">language: zh-Hans                         &#x2F;&#x2F; 语言</span><br><span class="line">timezone: &#39;Asia&#x2F;Shanghai&#39;                 &#x2F;&#x2F; 时间</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置部署"><a href="#配置部署" class="headerlink" title="配置部署"></a>配置部署</h2><p>将以下配置的yourname替换成自己的用户名即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:yourname&#x2F;youremail.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意 branch所选择的分支一定一定要以github page 配置的分支一样才行。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
       </categories>
       <tags>
         <tag>hexo</tag>
