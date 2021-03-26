@@ -97,9 +97,9 @@ menu:
   about: /about/|| user
   tags: /tags/|| tags
   categories: /categories/|| th
-  schedule: /schedule/|| calendar
-  sitemap: /sitemap.xml|| sitemap
-  commonweal: /404/|| heartbeat
+  # schedule: /schedule/|| calendar
+  # sitemap: /sitemap.xml|| sitemap
+  # commonweal: /404/|| heartbeat
 
 # Enable/Disable menu icons.
 menu_icons:

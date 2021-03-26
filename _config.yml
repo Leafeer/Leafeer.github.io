@@ -13,8 +13,10 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
-root: /
+# url: http://yoursite.com
+# root: /
+url: http://leafeer.gitee.io/
+root: ./
 permalink: :name/
 permalink_defaults:
 pretty_urls:
@@ -104,7 +106,8 @@ search:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:Leafeer/Leafeer.github.io.git
+  # repository: git@github.com:Leafeer/Leafeer.github.io.git
+  repository: git@gitee.com:leafeer/leafeer.gitee.io.git
   branch: master
 
 # live2d
